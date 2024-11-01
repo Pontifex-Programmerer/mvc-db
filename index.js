@@ -4,8 +4,12 @@ const mongoose = require('mongoose');
 const express =  require('express');
 const app = express();
 
+const router = require('./routes/api_routes')
+
 const DBURI = process.env.DBURI;
 const PORT = process.env.PORT || 3000;
+
+app.use(routes);
 
 app.listen(PORT, startup);
 
@@ -15,7 +19,6 @@ async function startup(){
     mongoose.connect(DBURI, {dbName:"TESTDB"})
     .then(res => {
         console.info('Connected to DB!');
-        console.log('result', res)
     })
     .catch(err => {
         console.error('could not connect to db');
