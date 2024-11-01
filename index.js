@@ -9,7 +9,7 @@ const router = require('./routes/api_routes')
 const DBURI = process.env.DBURI;
 const PORT = process.env.PORT || 3000;
 
-app.use(routes);
+app.use(router);
 
 app.listen(PORT, startup);
 
